@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>NotepadNX</id>
+    <version>0.0.0</version>
+    <title>NotepadNX</title>
+    <authors>4Dmu</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/4Dmu/Notes-WPF-V1</projectUrl>
+    <description>A simple notepad clone made in wpf without any xaml</description>
+    <releaseNotes></releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>WPF Notepad</tags>
+  </metadata>
+  <files>
+	  <file src="bin\Release\net6.0-windows\**" target="lib\net45"/>
+  </files>
+	
+</package>
