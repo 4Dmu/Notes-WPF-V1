@@ -582,9 +582,12 @@ namespace Notes
         {
             var updateInfo = await manager.CheckForUpdate();
 
-            await manager.UpdateApp();
+            if (updateInfo.ReleasesToApply.Count  >0)
+            {
+                await manager.UpdateApp();
 
-            MessageBox.Show("App updated successfully");
+                MessageBox.Show("App updated successfully");
+            }
         }
 
         private void OnPropertyChanged(string propertyName)
