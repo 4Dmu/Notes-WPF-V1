@@ -8,6 +8,7 @@ using Shell.MVVM.Commands;
 using Shell.WPF.Core.Markup;
 using Shell.WPF.NavShell.Controls;
 using Shell.WPF.UI.Extensions;
+using Squirrel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,8 @@ namespace Notes
     {
         #region Feilds
         private IHost _host;
+
+        private UpdateManager manager;
 
         private const string appName = "notepadNX"; 
         #endregion
@@ -503,12 +506,15 @@ namespace Notes
             });
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             _host.Start();
 
-            NavigationShell.SetServiceProvider(_host.Services);
+            manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/4Dmu/Notes-WPF-V1");
 
+            await ChechForUpdates();
+
+            NavigationShell.SetServiceProvider(_host.Services);
 
 
             MainWindow = new NavigationShell()
@@ -570,6 +576,15 @@ namespace Notes
             MainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        private async Task ChechForUpdates()
+        {
+            var updateInfo = await manager.CheckForUpdate();
+
+            await manager.UpdateApp();
+
+            MessageBox.Show("App updated successfully");
         }
 
         private void OnPropertyChanged(string propertyName)
