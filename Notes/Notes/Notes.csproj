@@ -10,11 +10,20 @@
   <ItemGroup>
     <PackageReference Include="Shell.Core" Version="1.0.0" />
     <PackageReference Include="Shell.MVVM" Version="1.0.0" />
-    <PackageReference Include="Shell.WPF.Core" Version="1.0.0" />
+    <PackageReference Include="Shell.WPF.Core" Version="1.0.7" />
     <PackageReference Include="Shell.WPF.MVVM" Version="1.0.0" />
-    <PackageReference Include="Shell.WPF.Shell" Version="1.0.1" />
+    <PackageReference Include="Shell.WPF.NavShell" Version="1.0.5" />
     <PackageReference Include="Shell.WPF.Theme" Version="1.0.0" />
     <PackageReference Include="Shell.WPF.UI" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Images\icon_dark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
